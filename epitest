@@ -84,7 +84,9 @@ else
     docker pull "$IMAGE"
 fi
 
-DOCKER_RUN_OPTS=("--rm" "-it" "-v" "$(pwd):/app" "-w" "/app")
+C_COMPILER=gcc
+DOCKER_RUN_OPTS=("--rm" "-it" "-v" "$(pwd):/app" "-w" "/app" "-e" "CC=$C_COMPILER")
+
 if [ "$GRAPHIC_MODE" = true ]; then
     echo "Enabling graphical mode..."
 
